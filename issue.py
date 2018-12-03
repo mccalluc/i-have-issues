@@ -40,7 +40,7 @@ def field_selector(record):
     return [
         record['number'], record['user']['login'],
         record['state'], record['created_at'], record['closed_at'],
-        'PR' if hasattr(record, 'pull_request') else 'ISSUE',
+        'PR' if 'pull_request' in record else 'ISSUE',
         ' '.join([label['name'] for label in record['labels']]),
         record['title']
     ]
